@@ -2,5 +2,4 @@ opencv-python
 mtcnn
 deepface
 pandas 
-json
 tqdm

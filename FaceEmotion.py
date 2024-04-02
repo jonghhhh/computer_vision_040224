@@ -2,6 +2,7 @@ from mtcnn import MTCNN
 import cv2
 from matplotlib import pyplot as plt
 from deepface import DeepFace
+import os
 
 class FaceEmotion:
     def __init__(self, input_path, save_folder):
@@ -23,8 +24,6 @@ class FaceEmotion:
             face_img = image_rgb[y:y+height, x:x+width]  # image_rgb에서 face 영역 추출
             try:
                 analysis = DeepFace.analyze(face_img, actions=['emotion'], enforce_detection=False)
-                #analysis[0]['face_id']=i         # face id 추가
-                #result_analysis.append(analysis[0])
                 emotions = analysis[0]['emotion']
                 dominant_emotion = analysis[0]['dominant_emotion']
                 result_analysis.append([i, face, emotions, dominant_emotion])
